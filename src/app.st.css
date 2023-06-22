@@ -1,0 +1,15 @@
+.root {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 100%;
+	width: 100%;
+}
+
+
+
+.stage {
+	display: grid;
+	place-items: center;
+}
+
+.controls {}

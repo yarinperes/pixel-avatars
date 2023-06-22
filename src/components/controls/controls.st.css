@@ -1,0 +1,26 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+
+.control {
+	padding: 4px;
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+	gap: 4px;
+	margin-bottom: 12px;
+	text-transform: capitalize;
+	height: 64px;
+}
+
+.type {
+	grid-row: 2 / 3;
+}
+
+.color {
+	width: 40%;
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+}
