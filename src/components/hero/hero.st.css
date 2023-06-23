@@ -1,0 +1,30 @@
+.root {
+	font-size: 100px;
+	text-align: center;
+	height: 700px;
+	display: grid;
+	place-content: center;
+	position: relative;
+}
+
+.text {
+	width: 70%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.backgroundRects {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+@media (max-width: 800px) {
+	.root {
+		font-size: 50px;
+	}
+}
+
+.rects {
+	left: 120px;
+}

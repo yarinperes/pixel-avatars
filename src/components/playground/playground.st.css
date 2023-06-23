@@ -1,0 +1,20 @@
+.root {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 100%;
+	width: 100%;
+	padding: 0px 120px 120px;
+	align-content: center;
+	gap: 12px;
+	margin-bottom: 120px;
+}
+
+@media (max-width: 1000px) {
+	.root {
+		padding: 0px;
+		display: grid;
+		place-items: center;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr;
+	}
+}

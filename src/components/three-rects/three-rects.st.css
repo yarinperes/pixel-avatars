@@ -1,0 +1,12 @@
+.root {
+	display: flex;
+	gap: 50px;
+	position: absolute;
+	bottom: 0px;
+}
+
+.root > div {
+	height: 20px;
+	width: 20px;
+	background: #000;
+}

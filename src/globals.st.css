@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'W95fa';
-	src: url('assets/font/w95fa/w95fa.woff2') format('woff2');
+	src: url('font/w95fa/w95fa.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -10,6 +10,9 @@
 :global(::after) {
 	box-sizing: border-box;
 	font-family: W95fa;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
 }
 
 :global(html),

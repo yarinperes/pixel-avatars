@@ -1,28 +1,32 @@
 import type React from 'react';
 import { useMemo } from 'react';
 import { st, classes } from './app.st.css';
-import { Stage } from './components/stage/stage';
-import { Controls } from './components/controls/controls';
-import { AvatarContext, DEFAULT_AVATAR } from './context';
+import { Stage } from './components/playground/stage/stage';
+import { Controls } from './components/playground/controls/controls';
+import { AvatarContext, DEFAULT_AVATAR } from './components/playground/context';
 import { useState } from 'react';
+import { Hero } from './components/hero/hero';
+import { Info } from './components/info/info';
+import { Playground } from './components/playground/playground';
+import { Footer } from './components/footer/footer';
+import { Gallery } from './components/playground/gallery/gallery';
 
 export interface AppProps {
-	className?: string;
+    className?: string;
 }
 
 export const App: React.FC<AppProps> = ({ className }) => {
-	const [layers, setLayers] = useState(DEFAULT_AVATAR);
+    const [layers, setLayers] = useState(DEFAULT_AVATAR);
 
-	return (
-		<AvatarContext.Provider value={useMemo(() => ({ ...layers, setLayers }), [layers])}>
-			<main className={st(classes.root, className)}>
-				<div className={classes.stage}>
-					<Stage />
-				</div>
-				<div className={classes.controls}>
-					<Controls />
-				</div>
-			</main>
-		</AvatarContext.Provider>
-	);
+    return (
+        <AvatarContext.Provider value={useMemo(() => ({ ...layers, setLayers }), [layers])}>
+            <div className={st(classes.root, className)}>
+                <Hero />
+                <Info />
+                <Gallery />
+                <Playground />
+                <Footer />
+            </div>
+        </AvatarContext.Provider>
+    );
 };

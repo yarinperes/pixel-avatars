@@ -1,0 +1,18 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.generate {
+	font-size: 24px;
+	color: white;
+	background: black;
+	padding: 8px 24px;
+	border: none;
+	width: 180px;
+	margin-top: 100px;
+	cursor: pointer;
+}

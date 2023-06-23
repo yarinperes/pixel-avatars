@@ -1,0 +1,19 @@
+.root {}
+
+.options {
+	border: 1px solid black;
+	width: 100%;
+}
+
+.option {
+	height: 24px;
+	list-style-type: none;
+	padding: 4px;
+	cursor: pointer;
+	text-transform: capitalize;
+	background-color: white;
+}
+
+.options .option:hover {
+	background-color: #eee;
+}

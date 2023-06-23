@@ -1,0 +1,52 @@
+.root {
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+	width: 100%;
+}
+
+.title {
+	font-size: 48px;
+	text-transform: capitalize;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 50%;
+	user-select: none;
+}
+
+.dropdownContainer {
+	width: 120px;
+}
+
+.opener {
+	width: 120px;
+	padding: 4px;
+	border: 1px solid black;
+	background: none;
+	font-size: 16px;
+	cursor: pointer;
+	text-transform: capitalize;
+	height: 25px;
+}
+
+.chevron {
+	cursor: pointer;
+}
+
+.dropdowns {
+	display: flex;
+	gap: 12px;
+}
+
+@media (max-width: 800px) {
+	.root {
+		width: 70vw;
+	}
+
+	.title {
+		width: 100%;
+	}
+}

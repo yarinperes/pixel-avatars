@@ -43,13 +43,14 @@ import Shirt3 from './assets/shirt/shirt-03.svg';
 
 import Sunglasses01 from './assets/sunglasses/sunglasses-01.svg';
 import Sunglasses02 from './assets/sunglasses/sunglasses-02.svg';
+import type { AvatarProperties } from './context';
 
 export const BEARDS = {
-	full: Beard01,
-	['beard-only']: Beard02,
-	french: Beard03,
-	mustache: Beard04,
-	long: Beard05,
+    full: Beard01,
+    ['beard-only']: Beard02,
+    french: Beard03,
+    mustache: Beard04,
+    long: Beard05,
 } as const;
 
 export const EYES = { regular: Eyes01, big: Eyes02, down: Eyes03, small: Eyes04 } as const;
@@ -57,14 +58,14 @@ export const EYES = { regular: Eyes01, big: Eyes02, down: Eyes03, small: Eyes04 
 export const FACES = { sharp: Face01, ellipse: Face02, round: Face03 } as const;
 
 export const HAIRS = {
-	['curly-long']: Hair01,
-	medium: Hair02,
-	['half-bald']: Hair03,
-	['short-1']: Hair04,
-	bob: Hair05,
-	['short-2']: Hair06,
-	long: Hair07,
-	mohican: Hair08,
+    ['curly-long']: Hair01,
+    medium: Hair02,
+    ['half-bald']: Hair03,
+    ['short-1']: Hair04,
+    ['short-2']: Hair06,
+    bob: Hair05,
+    long: Hair07,
+    mohican: Hair08,
 } as const;
 
 export const HATS = { crown: Hat01, hat: Hat02, bunny: Hat03 } as const;
@@ -72,11 +73,11 @@ export const HATS = { crown: Hat01, hat: Hat02, bunny: Hat03 } as const;
 export const MOUTHS = { kiss: Mouth01, smile: Mouth02, close: Mouth03, tongue: Mouth04 } as const;
 
 export const NOSES = {
-	small: Nose1,
-	['small-2']: Nose5,
-	twist: Nose2,
-	wide: Nose3,
-	long: Nose4,
+    small: Nose1,
+    ['small-2']: Nose5,
+    twist: Nose2,
+    wide: Nose3,
+    long: Nose4,
 } as const;
 
 export const SHIRTS = { large: Shirt1, medium: Shirt2, small: Shirt3 } as const;
@@ -98,46 +99,99 @@ export type Layer = Beard | Eyes | Face | Hair | Hat | Mouth | Nose | Shirt | Su
 export const EYES_COLORS = ['#383838', '#488F54', '#5F4541', '#9AD5FF'];
 
 export const HAIR_COLORS = [
-	'#030001',
-	'#5F4541',
-	'#BABABA',
-	'#FAE6C5',
-	'#FF6624',
-	'#FFBF5B',
-	'#FFFFFF',
+    '#030001',
+    '#5F4541',
+    '#BABABA',
+    '#FAE6C5',
+    '#FF6624',
+    '#FFBF5B',
+    '#FFFFFF',
 ];
 
 export const FACE_COLORS = [
-	'#5F4541',
-	'#6D5553',
-	'#907775',
-	'#AE9376',
-	'#D1B9A1',
-	'#D9C4AD',
-	'#EBDBC9',
-	'#F5E5D5',
-	'#FEF4FF',
-	'#FFF9F2',
+    '#5F4541',
+    '#6D5553',
+    '#907775',
+    '#AE9376',
+    '#D1B9A1',
+    '#D9C4AD',
+    '#EBDBC9',
+    '#F5E5D5',
+    '#FEF4FF',
+    '#FFF9F2',
 ];
 
 export const SHIRT_COLORS = [
-	'#030001',
-	'#4866E9',
-	'#48A177',
-	'#A14C49',
-	'#B548E9',
-	'#E94895',
-	'#FFE814',
-	'#FFFFFF',
+    '#030001',
+    '#4866E9',
+    '#48A177',
+    '#A14C49',
+    '#B548E9',
+    '#E94895',
+    '#FFE814',
+    '#FFFFFF',
 ];
 
 export const BACKGROUND_COLORS = [
-	'#B2B0FF',
-	'#C0DDEC',
-	'#D8D8D8',
-	'#DEFFCA',
-	'#F4CFC3',
-	'#FDFFA4',
-	'#FFA6C4',
-	'#FFFFFF',
+    '#B2B0FF',
+    '#C0DDEC',
+    '#D8D8D8',
+    '#DEFFCA',
+    '#F4CFC3',
+    '#FDFFA4',
+    '#FFA6C4',
+    '#FFFFFF',
+];
+
+export type Step = {
+    options: Record<string, React.FC<React.SVGProps<SVGSVGElement>>>;
+    colors?: string[];
+    name: keyof AvatarProperties;
+};
+
+export const STEPS: Step[] = [
+    {
+        options: FACES,
+        name: 'face',
+        colors: FACE_COLORS,
+    },
+    {
+        options: HAIRS,
+        colors: HAIR_COLORS,
+        name: 'hair',
+    },
+
+    {
+        options: BEARDS,
+        name: 'beard',
+        colors: HAIR_COLORS,
+    },
+
+    {
+        options: EYES,
+        name: 'eyes',
+        colors: EYES_COLORS,
+    },
+    {
+        options: NOSES,
+        name: 'nose',
+        colors: FACE_COLORS,
+    },
+    {
+        options: MOUTHS,
+        name: 'mouth',
+    },
+    {
+        options: SUNGLASSES,
+        name: 'sunglasses',
+    },
+    {
+        options: HATS,
+        name: 'hat',
+    },
+    {
+        options: SHIRTS,
+        colors: SHIRT_COLORS,
+        name: 'shirt',
+    },
 ];

@@ -1,0 +1,17 @@
+.root {
+	height: 100px;
+	line-height: 100px;
+	font-size: 24px;
+	text-align: center;
+	border-top: 2px solid black;
+	position: relative;
+}
+
+.rects {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	min-width: 0px;
+	left: 0;
+	z-index: -1;
+}

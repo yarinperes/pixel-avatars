@@ -1,0 +1,16 @@
+.root {
+	display: grid;
+	place-content: center;
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;
+	background: white;
+}
+
+
+@media (max-width: 800px) {
+	.root {
+		width: 200px;
+		height: 200px;
+	}
+}
