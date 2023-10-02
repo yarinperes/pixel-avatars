@@ -5,7 +5,7 @@ import { Control } from './control/control';
 import { AvatarContext } from '../context';
 import { randomAvatar } from '../utils';
 
-export const Controls = memo(function Controls() {
+export const Controls = memo(function Controls({ onSave }: { onSave: () => void }) {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const step = STEPS[currentIndex];
     const { setLayers } = useContext(AvatarContext);
@@ -54,9 +54,14 @@ export const Controls = memo(function Controls() {
                 name={step.name}
                 layer={step.options}
             />
-            <button onClick={generate} className={classes.generate}>
-                Generate
-            </button>
+            <div className={classes.buttons}>
+                <button onClick={onSave} className={st(classes.control, classes.save)}>
+                    Save
+                </button>
+                <button onClick={generate} className={st(classes.control, classes.generate)}>
+                    Random
+                </button>
+            </div>
         </div>
     );
 });

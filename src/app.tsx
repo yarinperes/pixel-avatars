@@ -1,8 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
 import { st, classes } from './app.st.css';
-import { Stage } from './components/playground/stage/stage';
-import { Controls } from './components/playground/controls/controls';
 import { AvatarContext, DEFAULT_AVATAR } from './components/playground/context';
 import { useState } from 'react';
 import { Hero } from './components/hero/hero';
@@ -22,9 +20,9 @@ export const App: React.FC<AppProps> = ({ className }) => {
         <AvatarContext.Provider value={useMemo(() => ({ ...layers, setLayers }), [layers])}>
             <div className={st(classes.root, className)}>
                 <Hero />
-                <Info />
-                <Gallery />
                 <Playground />
+                <Gallery />
+                <Info />
                 <Footer />
             </div>
         </AvatarContext.Provider>

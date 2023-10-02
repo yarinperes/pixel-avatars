@@ -3,10 +3,13 @@
 	grid-template-columns: 1fr 1fr;
 	height: 100%;
 	width: 100%;
-	padding: 0px 120px 120px;
+	padding: 0px 120px;
 	align-content: center;
 	gap: 12px;
-	margin-bottom: 120px;
+}
+
+.scale {
+	width: 100%;
 }
 
 @media (max-width: 1000px) {

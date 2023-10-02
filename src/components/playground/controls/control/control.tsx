@@ -13,7 +13,7 @@ export function Control<T extends object>({
 }: {
     name: keyof AvatarProperties;
     colors?: string[];
-    layer: T;
+    layer?: T;
     next: () => void;
     previous: () => void;
 }) {
@@ -26,13 +26,7 @@ export function Control<T extends object>({
     const typeRect = typeRef.current?.getBoundingClientRect();
     const colorRect = colorRef.current?.getBoundingClientRect();
 
-    const typeOptions = [
-        { value: 'None', title: 'None' },
-        ...Object.keys(layer).map((key) => ({
-            title: key,
-            value: key,
-        })),
-    ];
+    const typeOptions = layer && getOptions(layer);
 
     const typePosition = typeRect && {
         left: typeRect.left,
@@ -80,22 +74,24 @@ export function Control<T extends object>({
                 <Chevron className={classes.chevron} onClick={next} direction="right" />
             </div>
             <div className={classes.dropdowns}>
-                <div className={classes.dropdownContainer} ref={typeRef}>
-                    <Dropdown
-                        close={() => setIsTypeOpen(false)}
-                        isOpen={isTypeOpen}
-                        options={typeOptions}
-                        onChange={onTypeChange}
-                        position={typePosition}
-                    >
-                        <button
-                            onClick={() => setIsTypeOpen(!isTypeOpen)}
-                            className={classes.opener}
+                {typeOptions && (
+                    <div className={classes.dropdownContainer} ref={typeRef}>
+                        <Dropdown
+                            close={() => setIsTypeOpen(false)}
+                            isOpen={isTypeOpen}
+                            options={typeOptions}
+                            onChange={onTypeChange}
+                            position={typePosition}
                         >
-                            {state[name].selected || 'Type'}
-                        </button>
-                    </Dropdown>
-                </div>
+                            <button
+                                onClick={() => setIsTypeOpen(!isTypeOpen)}
+                                className={classes.opener}
+                            >
+                                {state[name].selected || 'Type'}
+                            </button>
+                        </Dropdown>
+                    </div>
+                )}
                 {colors && (
                     <div className={classes.dropdownContainer} ref={colorRef}>
                         <Dropdown
@@ -114,12 +110,46 @@ export function Control<T extends object>({
                             <button
                                 onClick={() => setIsColorOpen(!isColorOpen)}
                                 className={classes.opener}
-                                style={{ background: state[name].color }}
-                            />
+                                style={{
+                                    background: state[name].color,
+                                    color: getTextColorByBackground(state[name].color || ''),
+                                }}
+                            >
+                                Color
+                            </button>
                         </Dropdown>
                     </div>
                 )}
             </div>
         </div>
     );
+}
+
+function getOptions<T extends object>(layer: T) {
+    const options = [{ value: 'None', title: 'None' }];
+
+    for (const key in layer) {
+        options.push({
+            value: key,
+            title: key,
+        });
+    }
+
+    return options;
+}
+
+function getTextColorByBackground(hexBackground: string) {
+    const rgbBackground = hexToRgb(hexBackground);
+    const luminance =
+        (0.299 * rgbBackground.r + 0.587 * rgbBackground.g + 0.114 * rgbBackground.b) / 255;
+    return luminance > 0.5 ? '#000' : '#fff';
+}
+
+function hexToRgb(hex: string) {
+    const bigint = parseInt(hex.replace('#', ''), 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    return { r, g, b };
 }

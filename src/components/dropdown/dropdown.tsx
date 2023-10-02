@@ -18,7 +18,7 @@ type OptionRenderer = ComponentType<{
     className?: string;
 }>;
 
-export interface DropdownProps {
+export interface DropdownProps extends PropsWithChildren {
     isOpen: boolean;
     options: Option[];
     position?: Position;
@@ -28,7 +28,7 @@ export interface DropdownProps {
     close?: () => void;
 }
 
-export const Dropdown = memo<PropsWithChildren<DropdownProps>>(function Dropdown({
+export const Dropdown = ({
     className,
     children,
     onChange,
@@ -37,18 +37,20 @@ export const Dropdown = memo<PropsWithChildren<DropdownProps>>(function Dropdown
     isOpen,
     optionRenderer,
     close,
-}) {
+}: DropdownProps) => {
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
         if (isOpen) {
-            const closeDropdown = (e: MouseEvent) => {
+            const closeDropdown = (e: Event) => {
                 if (!dropdownRef.current?.contains(e.target as HTMLDivElement)) {
                     close?.();
                 }
             };
+            document.addEventListener('scroll', closeDropdown);
             document.addEventListener('click', closeDropdown);
             return () => {
+                document.addEventListener('scroll', closeDropdown);
                 document.removeEventListener('click', closeDropdown);
             };
         }
@@ -75,7 +77,7 @@ export const Dropdown = memo<PropsWithChildren<DropdownProps>>(function Dropdown
                 )}
         </div>
     );
-});
+};
 
 export const DropdownOptions = memo<{
     options: Option[];

@@ -1,16 +1,17 @@
 .root {
-	display: grid;
-	place-content: center;
 	width: 500px;
 	height: 500px;
-	border: 1px solid black;
-	background: white;
 }
 
+.preview {
+	display: grid;
+	place-content: center;
+	border: 1px solid black;
+	background: white;
+	height: 100%;
+}
 
-@media (max-width: 800px) {
-	.root {
-		width: 200px;
-		height: 200px;
-	}
+.scale {
+	width: 100%;
+	margin-top: 12px;
 }

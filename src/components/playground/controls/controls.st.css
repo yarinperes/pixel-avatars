@@ -3,16 +3,31 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
 }
 
-.generate {
+.control {
 	font-size: 24px;
-	color: white;
-	background: black;
 	padding: 8px 24px;
 	border: none;
 	width: 180px;
-	margin-top: 100px;
 	cursor: pointer;
+	display: block;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin-top: 100px;
+
+	.generate {
+		color: white;
+		background: black;
+	}
+
+	.save {
+		background: unset;
+		color: black;
+		border: 1px solid;
+	}
 }

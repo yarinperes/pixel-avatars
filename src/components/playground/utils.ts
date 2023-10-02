@@ -28,17 +28,21 @@ export function randomValueFromArray<T>(array: T[]): T {
     return array[Math.floor(Math.random() * array.length)];
 }
 
+export function randomEntry<T>(array: T[]) {
+    return Math.random() > 0.5 ? randomValueFromArray(array) : undefined;
+}
+
 export function randomAvatar() {
     return {
         background: {
             color: randomValueFromArray(BACKGROUND_COLORS),
         },
         beard: {
-            selected: randomValueFromArray(Object.keys(BEARDS)) as Beard,
+            selected: randomEntry(Object.keys(BEARDS)) as Beard,
             color: randomValueFromArray(HAIR_COLORS),
         },
         hair: {
-            selected: randomValueFromArray(Object.keys(HAIRS)) as Hair,
+            selected: randomEntry(Object.keys(HAIRS)) as Hair,
             color: randomValueFromArray(HAIR_COLORS),
         },
         eyes: {
@@ -50,13 +54,13 @@ export function randomAvatar() {
             color: randomValueFromArray(FACE_COLORS),
         },
         hat: {
-            selected: randomValueFromArray(Object.keys(HATS)) as Hat,
+            selected: randomEntry(Object.keys(HATS)) as Hat,
         },
         mouth: {
-            selected: randomValueFromArray(Object.keys(MOUTHS)) as Mouth,
+            selected: randomEntry(Object.keys(MOUTHS)) as Mouth,
         },
         nose: {
-            selected: randomValueFromArray(Object.keys(NOSES)) as Nose,
+            selected: randomEntry(Object.keys(NOSES)) as Nose,
             color: randomValueFromArray(FACE_COLORS),
         },
         shirt: {
@@ -64,7 +68,7 @@ export function randomAvatar() {
             color: randomValueFromArray(SHIRT_COLORS),
         },
         sunglasses: {
-            selected: randomValueFromArray(Object.keys(SUNGLASSES)) as Sunglasses,
+            selected: randomEntry(Object.keys(SUNGLASSES)) as Sunglasses,
         },
     };
 }

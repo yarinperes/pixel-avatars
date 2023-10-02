@@ -1,0 +1,9 @@
+export const Beard05 = ({ color = 'currentColor' }: { color?: string }) => (
+    <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M42 58H37V78H42V83H47V88H52V93H67V88H72V83H77V78H82V58H77V68H72V73H67V78H62V73H57V78H52V73H47V68H42V58Z"
+        fill={color}
+    />
+);
+export default Beard05;

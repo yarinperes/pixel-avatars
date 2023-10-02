@@ -1,48 +1,48 @@
-import Beard01 from './assets/beard/beard-01.svg';
-import Beard02 from './assets/beard/beard-02.svg';
-import Beard03 from './assets/beard/beard-03.svg';
-import Beard04 from './assets/beard/beard-04.svg';
-import Beard05 from './assets/beard/beard-05.svg';
+import Beard01 from './assets/beard/beard-01';
+import Beard02 from './assets/beard/beard-02';
+import Beard03 from './assets/beard/beard-03';
+import Beard04 from './assets/beard/beard-04';
+import Beard05 from './assets/beard/beard-05';
 
-import Eyes01 from './assets/eyes/eyes-01.svg';
-import Eyes02 from './assets/eyes/eyes-02.svg';
-import Eyes03 from './assets/eyes/eyes-03.svg';
-import Eyes04 from './assets/eyes/eyes-04.svg';
+import Eyes01 from './assets/eyes/eyes-01';
+import Eyes02 from './assets/eyes/eyes-02';
+import Eyes03 from './assets/eyes/eyes-03';
+import Eyes04 from './assets/eyes/eyes-04';
 
-import Face01 from './assets/face/face-01.svg';
-import Face02 from './assets/face/face-02.svg';
-import Face03 from './assets/face/face-03.svg';
+import Face01 from './assets/face/face-01';
+import Face02 from './assets/face/face-02';
+import Face03 from './assets/face/face-03';
 
-import Hair01 from './assets/hair/hair-01.svg';
-import Hair02 from './assets/hair/hair-02.svg';
-import Hair03 from './assets/hair/hair-03.svg';
-import Hair04 from './assets/hair/hair-04.svg';
-import Hair05 from './assets/hair/hair-05.svg';
-import Hair06 from './assets/hair/hair-06.svg';
-import Hair07 from './assets/hair/hair-07.svg';
-import Hair08 from './assets/hair/hair-08.svg';
+import Hair01 from './assets/hair/hair-01';
+import Hair02 from './assets/hair/hair-02';
+import Hair03 from './assets/hair/hair-03';
+import Hair04 from './assets/hair/hair-04';
+import Hair05 from './assets/hair/hair-05';
+import Hair06 from './assets/hair/hair-06';
+import Hair07 from './assets/hair/hair-07';
+import Hair08 from './assets/hair/hair-08';
 
-import Hat01 from './assets/hat/hat-01.svg';
-import Hat02 from './assets/hat/hat-02.svg';
-import Hat03 from './assets/hat/hat-03.svg';
+import Hat01 from './assets/hat/hat-01';
+import Hat02 from './assets/hat/hat-02';
+import Hat03 from './assets/hat/hat-03';
 
-import Mouth01 from './assets/mouth/mouth-01.svg';
-import Mouth02 from './assets/mouth/mouth-02.svg';
-import Mouth03 from './assets/mouth/mouth-03.svg';
-import Mouth04 from './assets/mouth/mouth-04.svg';
+import Mouth01 from './assets/mouth/mouth-01';
+import Mouth02 from './assets/mouth/mouth-02';
+import Mouth03 from './assets/mouth/mouth-03';
+import Mouth04 from './assets/mouth/mouth-04';
 
-import Nose1 from './assets/nose/nose-01.svg';
-import Nose2 from './assets/nose/nose-02.svg';
-import Nose3 from './assets/nose/nose-03.svg';
-import Nose4 from './assets/nose/nose-04.svg';
-import Nose5 from './assets/nose/nose-05.svg';
+import Nose1 from './assets/nose/nose-01';
+import Nose2 from './assets/nose/nose-02';
+import Nose3 from './assets/nose/nose-03';
+import Nose4 from './assets/nose/nose-04';
+import Nose5 from './assets/nose/nose-05';
 
-import Shirt1 from './assets/shirt/shirt-01.svg';
-import Shirt2 from './assets/shirt/shirt-02.svg';
-import Shirt3 from './assets/shirt/shirt-03.svg';
+import Shirt1 from './assets/shirt/shirt-01';
+import Shirt2 from './assets/shirt/shirt-02';
+import Shirt3 from './assets/shirt/shirt-03';
 
-import Sunglasses01 from './assets/sunglasses/sunglasses-01.svg';
-import Sunglasses02 from './assets/sunglasses/sunglasses-02.svg';
+import Sunglasses01 from './assets/sunglasses/sunglasses-01';
+import Sunglasses02 from './assets/sunglasses/sunglasses-02';
 import type { AvatarProperties } from './context';
 
 export const BEARDS = {
@@ -62,8 +62,8 @@ export const HAIRS = {
     medium: Hair02,
     ['half-bald']: Hair03,
     ['short-1']: Hair04,
-    ['short-2']: Hair06,
     bob: Hair05,
+    ['short-2']: Hair06,
     long: Hair07,
     mohican: Hair08,
 } as const;
@@ -144,12 +144,16 @@ export const BACKGROUND_COLORS = [
 ];
 
 export type Step = {
-    options: Record<string, React.FC<React.SVGProps<SVGSVGElement>>>;
+    options?: Record<string, React.FC<React.SVGProps<SVGSVGElement>>>;
     colors?: string[];
     name: keyof AvatarProperties;
 };
 
 export const STEPS: Step[] = [
+    {
+        name: 'background',
+        colors: BACKGROUND_COLORS,
+    },
     {
         options: FACES,
         name: 'face',

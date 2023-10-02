@@ -1,13 +1,26 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Avatar } from '../avatar/avatar';
-import { st, classes } from './stage.st.css';
+import { classes } from './stage.st.css';
 import { AvatarContext } from '../context';
 
-export const Stage = () => {
+export const Stage = ({ avatarRef }: { avatarRef: React.RefObject<SVGSVGElement> }) => {
+    const [size, setSize] = useState(300);
     const avatar = useContext(AvatarContext);
+    const style = { height: `${size}px`, width: `${size}px` };
+
     return (
-        <div className={st(classes.root)}>
-            <Avatar avatar={avatar} />
+        <div className={classes.root}>
+            <div className={classes.preview}>
+                <Avatar style={style} avatarRef={avatarRef} avatar={avatar} />
+            </div>
+            <input
+                value={size}
+                onChange={(e) => setSize(Number(e.target.value))}
+                className={classes.scale}
+                type="range"
+                min="100"
+                max="500"
+            />
         </div>
     );
 };
