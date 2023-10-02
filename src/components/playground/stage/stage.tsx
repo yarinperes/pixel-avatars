@@ -6,12 +6,11 @@ import { AvatarContext } from '../context';
 export const Stage = ({ avatarRef }: { avatarRef: React.RefObject<SVGSVGElement> }) => {
     const [size, setSize] = useState(300);
     const avatar = useContext(AvatarContext);
-    const style = { height: `${size}px`, width: `${size}px` };
 
     return (
         <div className={classes.root}>
             <div className={classes.preview}>
-                <Avatar style={style} avatarRef={avatarRef} avatar={avatar} />
+                <Avatar size={size} avatarRef={avatarRef} avatar={avatar} />
             </div>
             <input
                 value={size}

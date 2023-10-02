@@ -7,14 +7,14 @@ interface AvatarProps {
     className?: string;
     avatar: AvatarProperties;
     avatarRef?: React.RefObject<SVGSVGElement>;
-    style?: React.CSSProperties;
+    size: number;
 }
 
 export const Avatar = memo<AvatarProps>(function Avatar({
     className,
     avatarRef,
     avatar: { eyes, face, hair, hat, mouth, nose, shirt, sunglasses, beard, background },
-    style,
+    size,
 }) {
     const Face = face.selected && FACES[face.selected];
     const Beard = beard.selected && BEARDS[beard.selected];
@@ -29,13 +29,13 @@ export const Avatar = memo<AvatarProps>(function Avatar({
     return (
         <svg
             ref={avatarRef}
-            width="120"
-            height="120"
-            viewBox="0 0 120 120"
+            width={size}
+            height={size}
+            viewBox={'0 0 120 120'}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={st(classes.root, className)}
-            style={{ background: background.color, ...style }}
+            style={{ background: background.color, height: `${size}px`, width: `${size}px` }}
         >
             {Shirt && <Shirt color={shirt.color} />}
             {Face && <Face color={face.color} />}
