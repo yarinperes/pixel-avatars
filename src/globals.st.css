@@ -16,15 +16,14 @@
 }
 
 :global(html),
-:global(body),
-:global(body > div) {
+:global(body) {
 	margin: 0;
 	padding: 0;
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 }
 
-:global(html) {
+:global(body > div):global(html) {
 	font-family:
 		system-ui,
 		/* macOS 10.11-10.12 */
@@ -55,4 +54,9 @@
 :global(a:visited) {
 	color: inherit;
 	cursor: pointer;
+}
+
+:global(body > div) {
+	width: 100%;
+	height: 100%;
 }
