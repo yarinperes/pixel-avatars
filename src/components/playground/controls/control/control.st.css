@@ -49,4 +49,9 @@
 	.title {
 		width: 100%;
 	}
+
+	/* bigger touch target for the Color / type buttons */
+	.opener {
+		height: 44px;
+	}
 }

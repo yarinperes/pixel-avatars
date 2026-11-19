@@ -5,7 +5,7 @@ import { ThreeRects } from '../three-rects/three-rects';
 export const Info = memo(function Info() {
     return (
         <section className={st(classes.root)}>
-            <InfoBox background="#E8E7FF">Build you own avatar in pixel art style</InfoBox>
+            <InfoBox background="#E8E7FF">Build your own avatar in pixel art style</InfoBox>
             <InfoBox left={120} align="end" background="#FFE4ED">
                 Generate your new avatar with our algorithm
             </InfoBox>

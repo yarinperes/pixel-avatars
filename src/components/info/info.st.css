@@ -32,12 +32,25 @@
 }
 
 @media (max-width: 800px) {
+	.root {
+		padding: 0px 16px;
+		gap: 64px;
+	}
+
 	.infoBox {
-		width: 200px;
+		width: 75%;
 		font-size: 24px;
 	}
 
-	.rects {
-		display: none;
+	.infoBoxText {
+		padding: 0px 24px;
+		text-wrap: balance;
+	}
+
+	/* keep the three squares on mobile, but in the flow under the text instead of on top of it */
+	.root .rects {
+		position: relative;
+		z-index: 1;
+		margin-top: -60px;
 	}
 }
